@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#screen{
+    width: 400px;
+    height: 100px;
+    background-color: aqua;
+
+}
+
+#container{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    max-width: 400px;
+    flex-wrap: wrap;
+}
+
+#row{
+    display: flex;
+    width: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    box-sizing: border-box;
+    width: 100px;
+}
