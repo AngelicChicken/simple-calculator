@@ -1,16 +1,9 @@
-let i = 1;
-let operator = '/';
-let n = 2;
+const display = document.querySelector("#display");
+const numberButtons = document.querySelectorAll("#number");
 
-if(operator == '+'){
-    console.log(i + n);
-} 
-if(operator == '-'){
-    console.log(i - n);
-}
-if(operator == '*'){
-    console.log(i * n);
-}
-if(operator == '/'){
-    console.log(i / n);
-}
+numberButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        display.textContent += button.textContent;
+    })
+})
+
