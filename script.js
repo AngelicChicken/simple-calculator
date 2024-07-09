@@ -26,15 +26,12 @@ function operate(arr){
     }
 }
 
-// numberButtons.forEach((button) => {
-//     button.addEventListener("click", () => {
-        
-//     })
-// });
-
 operatorButtons.forEach((button) => {
-    button.addEventListener("click" () => {
-
+    button.addEventListener("click", () => {
+        if(input.includes('+')||input.includes('-')||input.includes('*')||input.includes('/')){
+            display.textContent = operate(separate(input));
+            input = display.textContent;
+        }
     })
 });
 
