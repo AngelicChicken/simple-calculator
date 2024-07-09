@@ -1,6 +1,7 @@
 const display = document.querySelector("#display");
 const numberButtons = document.querySelectorAll("#number");
-const operatorButtons = document.querySelectorAll("#operator")
+const operatorButtons = document.querySelectorAll("#operator");
+const resetButtons = document.querySelector("#reset");
 const btn = document.querySelectorAll("button");
 const equalBtn = document.querySelector("#equal");
 let input = "";
@@ -41,12 +42,16 @@ btn.forEach((button)=> {
             input += button.textContent;
             display.textContent += button.textContent;
         } 
-        console.log(input);
     })
 });
 
 equalBtn.addEventListener("click", () =>{
     display.textContent = operate(separate(input));
+});
+
+resetButtons.addEventListener("click", () => {
+    display.textContent = '';
+    input = '';
 });
 
 
