@@ -105,8 +105,11 @@ resetButtons.addEventListener("click", () => {
 });
 
 percentButtons.addEventListener("click", () => {
-    display.textContent = percent(input);
-    input = percent(input);
+    // let inputArr = separate(input);
+    // if(inputArr == 3){
+    //     inputArr[2] = percent(inputArr[2]);
+    // }
+    alert("not available");
 });
 
 minusButton.addEventListener("click", ()=> {
