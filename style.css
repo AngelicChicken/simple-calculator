@@ -30,3 +30,7 @@ button{
     box-sizing: border-box;
     width: 100px;
 }
+
+#equal{
+    flex-grow: 1;
+}
