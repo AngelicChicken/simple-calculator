@@ -54,23 +54,23 @@ function minus(arr){
             arr[2] = arr[2].replace("m", "");
             displayText = display.textContent;
             displayText = displayText.split(/([-\+\*\/])/g);
-            displayText[2] = displayText[2].replace("(–", "").replace(")", "");
+            displayText[2] = displayText[2].replace("(–)", "");
             display.textContent = displayText.join("");
         } else {
             displayText = display.textContent.split(/([-\+\*\/])/g)
             displayText.pop()
-            display.textContent = displayText.join("") + `(–${arr[2]})`;
+            display.textContent = displayText.join("") + `(–)${arr[2]}`;
             arr[2] += 'm';
         }
     } else{
         if(arr[0].includes('m')){
             arr[0] = arr[0].replace("m", "");
-            display.textContent = display.textContent.replace(`(–${arr[0]})`, arr[0]);
+            display.textContent = display.textContent.replace(`(–)${arr[0]}`, arr[0]);
         } else {
             if(arr.length == 2){
-                display.textContent = `(–${arr[0]})${arr[1]}`
+                display.textContent = `(–)${arr[0]}${arr[1]}`
             } else {
-                display.textContent = `(–${arr[0]})`
+                display.textContent = `(–)${arr[0]}`
             }
             arr[0] += 'm';
         }
