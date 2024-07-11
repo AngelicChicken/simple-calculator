@@ -42,8 +42,15 @@ function operate(arr){
 }
 
 function percent(num){
-    num = parseInt(num)/100;
-    return num;
+    if(num.includes("m")){
+        num = num.replace("m", "");
+        numForDisplay = `(–)${parseInt(num)/100}`
+        num = `${parseInt(num)/100}m`;
+        return [num, numForDisplay]; 
+    } else{
+        num = parseInt(num)/100;
+        return [num, num];
+    }
 }
 
 //the – use in (–number) is en dash, not -, this is done to simplify the splitting
@@ -57,8 +64,8 @@ function minus(arr){
             displayText[2] = displayText[2].replace("(–)", "");
             display.textContent = displayText.join("");
         } else {
-            displayText = display.textContent.split(/([-\+\*\/])/g)
-            displayText.pop()
+            displayText = display.textContent.split(/([-\+\*\/])/g);
+            displayText.pop();
             display.textContent = displayText.join("") + `(–)${arr[2]}`;
             arr[2] += 'm';
         }
@@ -106,10 +113,17 @@ resetButtons.addEventListener("click", () => {
 
 percentButtons.addEventListener("click", () => {
     // let inputArr = separate(input);
-    // if(inputArr == 3){
-    //     inputArr[2] = percent(inputArr[2]);
-    // }
-    alert("not available");
+    // if(inputArr.length == 3){
+    //     inputPercent = percent(inputArr[2]);
+    //     input = input.split(/([-\+\*\/])/g);
+    //     input.pop()
+    //     input = input.join("") + inputPercent[0];
+    //     console.log(`input = ${input}, inputArr = ${inputArr}, inputPercent = ${inputPercent}`);
+    //     displayText = display.textContent;
+    //     displayText = display.textContent.split(/([-\+\*\/])/g);
+    //     displayText.pop();
+    //     display.textContent = displayText.join("") + inputPercent[1];
+    // } else {console.log("percent")}
 });
 
 minusButton.addEventListener("click", ()=> {
