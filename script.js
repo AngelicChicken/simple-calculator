@@ -26,9 +26,9 @@ function operate(arr){
     }
     console.log(arr);
 
-    let num1 = parseInt(arr[0]);
+    let num1 = parseFloat(arr[0]);
     let operator = arr[1];
-    let num2 = parseInt(arr[2]);
+    let num2 = parseFloat(arr[2]);
 
     if(operator == "+"){
         return num1+num2;
@@ -37,25 +37,28 @@ function operate(arr){
     } if(operator == "*"){
         return num1*num2;
     } if(operator == "/"){
-        return num1/num2;
+        if(num2 != 0){
+            return num1/num2;
+        }else {
+            alert("Dont divide by 0");
+        }
     }
 }
 
 function percent(num){
     if(num.includes("m")){
         num = num.replace("m", "");
-        numForDisplay = `(–)${parseInt(num)/100}`
-        num = `${parseInt(num)/100}m`;
+        numForDisplay = `(–)${parseFloat(num)/100}`
+        num = `${parseFloat(num)/100}m`;
         return [num, numForDisplay]; 
     } else{
-        num = parseInt(num)/100;
+        num = parseFloat(num)/100;
         return [num, num];
     }
 }
 
 //the – use in (–number) is en dash, not -, this is done to simplify the splitting
 function minus(arr){
-    console.log(arr);
     if(arr.length == 3){
         if(arr[2].includes('m')){
             arr[2] = arr[2].replace("m", "");
@@ -130,6 +133,23 @@ percentButtons.addEventListener("click", () => {
 minusButton.addEventListener("click", ()=> {
     input = minus(separate(input));
     console.log(input);
+});
+
+comaButton.addEventListener("click", () =>{
+    console.log("coma button press");
+    let inputSeparate = separate(input);
+    console.log(inputSeparate)
+    if(inputSeparate.length == 3){
+        if(!inputSeparate[2].includes(".")){
+            input += ".";
+            display.textContent += "."
+        }
+    } else {
+        if(!input.includes(".")){
+            input += "."
+            display.textContent += "."
+        }
+    }
 })
 
 
