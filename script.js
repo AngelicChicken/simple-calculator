@@ -124,6 +124,7 @@ percentButtons.addEventListener("click", () => {
     //     displayText.pop();
     //     display.textContent = displayText.join("") + inputPercent[1];
     // } else {console.log("percent")}
+    alert("implement later")
 });
 
 minusButton.addEventListener("click", ()=> {
